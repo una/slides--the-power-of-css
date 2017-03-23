@@ -78,8 +78,46 @@
 
   <section>
     <article>
-      <h2>Blend Modes & Filters</h2>
-      filters & blend modes with the code box
+      <h2 class="u-textRight">Filters & Blend Modes</h2>
+      <div class="live-code-area">
+        <div class="img-area">
+          <img style="position: absolute; top: 0; left: 0; height: 100vh; z-index: -2;" class="demo1" src="../img/brooke-lark-158017.jpg">
+        </div>
+
+<!-- show filters, blend modes, then gradients -->
+        <div>
+          <div class="style-box-area">
+            <style class="code-editor" contenteditable="true">.demo1 {
+// -webkit-filter: blur(20px);
+// -webkit-filter: brightness(1.5);
+// -webkit-filter: contrast(1.5);
+// -webkit-filter: grayscale(.8);
+// -webkit-filter: hue-rotate(50deg);
+// -webkit-filter: invert(.8);
+// -webkit-filter: opacity(.1);
+// -webkit-filter: sepia(.6);
+// -webkit-filter: saturate(4);
+          }</style>
+        </div>
+        <input type="radio" style="float: none" class="u-click-trigger"/>
+        <div class="u-clickable">
+          <div class="demo1-cover"></div>
+          <div class="style-box-area">
+            <style class="code-editor" contenteditable="true">.demo1-cover {
+background: yellow;
+// mix-blend-mode: multiply;
+// mix-blend-mode: screen;
+// mix-blend-mode: hue;
+// mix-blend-mode: saturation;
+// mix-blend-mode: luminosity;
+// mix-blend-mode: color;
+// mix-blend-mode: soft-light;
+// mix-blend-mode: difference;
+          }</style>
+          </div>
+        </div>
+      </div>
+    </div>
     </article>
   </section>
 
@@ -92,8 +130,11 @@
 
   <section>
     <article>
+      <blockquote>"A <span class="u-textBold">Turing Complete</span> system means a system in which a program can be written that will find an answer to any computational problem"</blockquote>
+      http://my-codeworks.com/blog/2015/css3-proven-to-be-turing-complete
       CSS is turing complete
-      example
+      Rule 110 automaton
+      http://lemire.me/blog/2011/03/08/breaking-news-htmlcss-is-turing-complete/
     </article>
   </section>
 

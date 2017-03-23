@@ -1,1 +1,400 @@
-@import 'base/base';
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,800');
+
+$body-copy: #222;
+$border-color: rgba($body-copy,0.1);
+
+$mobile-w: 600px;
+$large-w: 1200px;
+
+$thumb-w: 50px;
+$thumb-h: 50px;
+$thumb-pad: 10px;
+$s-count: 11;
+
+::selection {
+  background-color: yellow;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 100%;
+  transition: left 500ms;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+}
+
+// type
+
+h1, h2 {
+  font-family: Montserrat, sans-serif;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 2.5rem;
+}
+
+h1 {
+  text-transform: capitalize;
+  font-size: 6rem;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+}
+
+//
+// each section
+section {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;left: 0;
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  box-sizing: border-box;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &:first-child {
+    opacity: 1;
+  }
+
+  transition: opacity 250ms ease-in-out;
+
+  article {
+    width: calc(90% - #{$thumb-w + $thumb-pad});
+    max-width: 1200px;
+    padding: 4rem 0 4rem 5%;
+    color: $body-copy;
+  }
+
+  &.less-padding article {
+    padding: 2rem 0 2rem 5%;
+  }
+
+  pre {
+    background: white;
+    border: 1px solid $border-color;
+    padding: 0.25rem 0.5rem;
+  }
+
+  pre {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+}
+
+.code-area {
+  display: flex;
+
+  .code-block {
+    flex: 1;
+    margin-right: .75em;
+
+    pre {
+      max-height: 22em;
+      overflow: auto;
+    }
+
+    + .code-block {
+      margin-left: .75em;
+    }
+  }
+}
+
+// utilities
+.u-center {
+  text-align: center;
+}
+
+.u-textRight {
+  text-align: right;
+}
+
+.u-click-trigger {
+  display: block;
+  z-index: 3;
+  float: right;
+  margin: 2em 0;
+
+  &:checked {
+    + .u-clickable {
+      opacity: 1;
+    }
+  }
+}
+
+.u-clickable {
+  width: 100%;
+  opacity: 0;
+  transition-duration: .5s;
+  margin-top: 2em;
+}
+
+.u-textBold {
+  font-weight: 800;
+}
+
+.u-verticalCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// main nav ids
+.s {
+  position: absolute;
+}
+
+
+
+//
+// navigation mixin styles
+@mixin active-thumb {
+  opacity: 1;
+  width: $thumb-w;
+  height: $thumb-h;
+}
+
+@mixin inactive-thumb {
+  opacity: 0.5;
+  width: $thumb-w / 2;
+  height: $thumb-h / 2;
+}
+
+//
+// navigation thumbs and buttons
+nav {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  user-select: none;
+
+  &.thumbs {
+    right: $thumb-pad;
+    top: 50%;
+    transform: translateY(-50%);
+    width: $thumb-w + $thumb-pad;
+    display: block;
+
+    ul {
+      margin: 0; padding: 0;
+    }
+
+    li {
+      display: block;
+      margin: 0 auto 0.5rem;
+
+      &:first-child a {
+        @include active-thumb();
+      }
+
+      a {
+        &:hover {
+          opacity: 1;
+        }
+        @include inactive-thumb();
+        margin: 0 auto;
+        display: block;
+        background-blend-mode: multiply;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        transition:
+          height 250ms ease-in-out,
+          width 250ms ease-in-out,
+          opacity 250ms ease-in-out;
+        &:active {
+          transform: translateY(1px);
+        }
+      }
+    }
+  }
+}
+
+
+//
+// slider experience on non mobile
+@media (min-width: $mobile-w) {
+  main {
+    height: 100%;
+  }
+}
+
+//
+// content position on large
+@media (min-width: $large-w) {
+  main article {
+    padding-left: 0;
+    margin: 0 auto;
+  }
+}
+
+//
+// progress indicator at top of page
+#progress {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 0%;
+  border-bottom: 20px solid rgba($body-copy, .8);
+  transition: width 1250ms linear;
+}
+
+
+//
+// :target and other iterative styles
+@for $i from 1 through $s-count {
+
+  //
+  // adjusting section opacity on all screens
+  #s#{$i}:target ~ main section {
+    opacity: 0;
+    &:nth-child(#{$i}) {
+      opacity: 1;
+    }
+  }
+
+  //
+  // adjusting section position on mobile screens
+  @media (max-width: $mobile-w - 1) {
+    #s#{$i}:target ~ main section {
+      top: 50%;
+      &:nth-child(#{$i}) {
+        top: 0;
+      }
+    }
+  }
+
+  //
+  // adjusting left position on big screens
+  @media (min-width: $mobile-w) {
+    // parent shift on target
+    #s#{$i}:target ~ main {
+      left: -100% * ($i - 1);
+    }
+    // individual
+    section:nth-child(#{$i}) {
+      left: 100% * ($i - 1);
+    }
+  }
+
+  .thumbs li:nth-child(#{$i}) a {
+    // background-image: url(http://lorempixel.com/g/400/150/city/#{$i}/);
+    background-color: hsl($i / $s-count * 360, 50, 30);
+  }
+
+  #s#{$i}:target ~ #border {
+    // background-image: url(http://lorempixel.com/g/400/150/city/#{$i}/);
+    border: 20px solid hsl($i / $s-count * 360, 50, 30);
+    height: calc(100vh);
+  }
+
+  #s#{$i}:target ~ #progress {
+    width: ($i - 1) / ($s-count - 1) * 100%;
+  }
+
+  #s#{$i}:target ~ .thumbs li:first-child a {
+    @include inactive-thumb();
+  }
+  #s#{$i}:target ~ .thumbs li:nth-child(#{$i}) a {
+    @include active-thumb();
+  }
+}
+
+
+//
+// background image
+// #border {
+//   // background-image: url(http://lorempixel.com/g/400/150/city/1/);
+//   border: 20px solid hsl(1 / 5 * 360, 50, 30);
+//   // background-blend-mode: multiply;
+//   // background-position: center;
+//   // background-size: cover;
+//   // $blur: 10px;
+//   // filter: blur($blur);
+//   position: fixed;
+//   z-index: -1;
+//   transition:
+//     // background-image .25s ease-in-out .25s,
+//     border .25s ease-in-out .5s;
+//   // top: $blur * -2; right: $blur * -2; bottom: $blur * -2; left: $blur * -2;
+//   top: 0; left: 0;
+//   right: 0; bottom: 0;
+// }
+
+
+//
+// global non-essential styles
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  color: $body-copy;
+  font-family: Merriweather, Georgia, serif;
+  font-weight: 300;
+}
+
+pre, code {
+  font-family: Inconsolata, monospace;
+}
+
+
+// Intro
+
+.intro-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition-duration: .5s;
+
+  polygon {
+    mix-blend-mode: multiply;
+    animation: swaying 8s ease-in-out forwards infinite;
+    transition-duration: .5s;
+    transform-origin: 50%;
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation-delay: calc(#{$i}s * .8);
+      }
+    }
+  }
+}
+
+article:hover {
+  + .intro-bg {
+    mix-blend-mode: difference;
+  }
+}
+
+.blue-bg{fill:#5AD4FF;}
+.yellow-bg{fill:#FFFF00;}
+.pink-bg{fill:#FF00F3;}
+
+
+@keyframes swaying{
+  0% {transform: rotate(10deg);}
+  50% {transform: rotate(-5deg)}
+  100% {transform: rotate(10deg);}
+}
+
+@keyframes rotate{
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg)}
+}

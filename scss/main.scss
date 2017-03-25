@@ -321,10 +321,6 @@ nav {
   color: white;
 }
 
-#s2:target ~ footer .caniuse-trigger {
-  @extend %caniuse-trigger--colored;
-}
-
 // global
 html, body {
   height: 100%;
@@ -379,21 +375,19 @@ footer {
     color: $body-copy;
     float: right;
   }
-
-  .caniuse-trigger {
-    @extend p;
-    font-weight: 800;
-    float: left;
-    border-radius: 50%;
-    padding: 0 .5em;
-    display: none;
-  }
 }
 
-%caniuse-trigger--colored {
-  display: block;
+.caniuse-trigger {
+  @extend p;
+  position: absolute;
+  bottom: 15px;
+  left: 25px;
+  font-weight: 800;
+  border-radius: 50%;
+  padding: 0 .5em;
   border: 2px solid $border-color;
   background: yellow;
+  z-index: 3;
 }
 
 article:hover {

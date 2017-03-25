@@ -9,7 +9,7 @@ $large-w: 1200px;
 $thumb-w: 50px;
 $thumb-h: 50px;
 $thumb-pad: 10px;
-$s-count: 11;
+$s-count: 14;
 
 ::selection {
   background-color: yellow;
@@ -53,7 +53,8 @@ p {
   font-size: 1.1em;
 }
 
-blockquote {
+blockquote,
+.blockquote {
   font-weight: 300;
   font-size: 3rem;
   max-width: 70%;
@@ -229,8 +230,6 @@ nav {
   }
 }
 
-
-//
 // slider experience on non mobile
 @media (min-width: $mobile-w) {
   main {
@@ -238,7 +237,6 @@ nav {
   }
 }
 
-//
 // content position on large
 @media (min-width: $large-w) {
   main article {
@@ -247,20 +245,19 @@ nav {
   }
 }
 
-//
-// progress indicator at top of page
-#progress {
+// progress indicator
+.progress {
   position: fixed;
-  z-index: 9;
-  top: 0;
+  z-index: 5;
+  bottom: 0;
   left: 0;
   width: 0%;
-  border-bottom: 20px solid rgba($body-copy, .8);
-  transition: width 1250ms linear;
+  margin: 0 0 20px 20px;
+  border-bottom: 5px solid #222;
+  border-bottom: 20px solid rgba $body-copy;
+  transition: width 1000ms linear;
 }
 
-
-//
 // :target and other iterative styles
 @for $i from 1 through $s-count {
 
@@ -298,17 +295,15 @@ nav {
   }
 
   .thumbs li:nth-child(#{$i}) a {
-    // background-image: url(http://lorempixel.com/g/400/150/city/#{$i}/);
-    background-color: hsl($i / $s-count * 360, 50, 30);
+    background-color: hsl($i / $s-count * 360, 100, 40);
   }
 
-  #s#{$i}:target ~ #border {
-    // background-image: url(http://lorempixel.com/g/400/150/city/#{$i}/);
-    border: 20px solid hsl($i / $s-count * 360, 50, 30);
+  #s#{$i}:target ~ .border {
+    border: 20px solid hsl($i / $s-count * 360, 100, 40);
     height: calc(100vh);
   }
 
-  #s#{$i}:target ~ #progress {
+  #s#{$i}:target ~ .progress {
     width: ($i - 1) / ($s-count - 1) * 100%;
   }
 
@@ -318,33 +313,13 @@ nav {
   #s#{$i}:target ~ .thumbs li:nth-child(#{$i}) a {
     @include active-thumb();
   }
+
+  #s1:target ~ .twitter-info {
+    color: white;
+  }
 }
 
-
-//
-// background image
-// #border {
-//   // background-image: url(http://lorempixel.com/g/400/150/city/1/);
-//   border: 20px solid hsl(1 / 5 * 360, 50, 30);
-//   // background-blend-mode: multiply;
-//   // background-position: center;
-//   // background-size: cover;
-//   // $blur: 10px;
-//   // filter: blur($blur);
-//   position: fixed;
-//   z-index: -1;
-//   transition:
-//     // background-image .25s ease-in-out .25s,
-//     border .25s ease-in-out .5s;
-//   // top: $blur * -2; right: $blur * -2; bottom: $blur * -2; left: $blur * -2;
-//   top: 0; left: 0;
-//   right: 0; bottom: 0;
-// }
-
-
-//
-// global non-essential styles
-
+// global
 html, body {
   height: 100%;
   width: 100%;
@@ -360,7 +335,6 @@ pre, code {
 
 
 // Intro
-
 .intro-bg {
   position: absolute;
   top: 0;
@@ -382,6 +356,14 @@ pre, code {
       }
     }
   }
+}
+
+.twitter-info {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  font-weight: 800;
+  font-size: 1.5rem;
 }
 
 article:hover {
@@ -414,6 +396,10 @@ article:hover {
   }
 }
 
+.cp_embed_wrapper {
+  outline: 1px solid $border-color;
+}
+
 // Editor Things
 .code-editor {
   display: block;
@@ -422,7 +408,6 @@ article:hover {
   z-index: 2;
   position: relative;
   z-index: 2;
-
 }
 
 .demo1 {

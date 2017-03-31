@@ -9,7 +9,7 @@ $large-w: 1200px;
 $thumb-w: 50px;
 $thumb-h: 50px;
 $thumb-pad: 10px;
-$s-count: 14;
+$s-count: 15;
 
 ::selection {
   background-color: yellow;
@@ -446,4 +446,12 @@ article:hover {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.flex-half-parent {
+  display: flex;
+
+  div {
+    flex: 1;
+  }
 }

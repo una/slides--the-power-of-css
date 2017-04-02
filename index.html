@@ -29,7 +29,7 @@
 <div class=progress></div>
 <div class=border></div>
 
-<nav class=prevnext role=presentation>
+<nav class="prevnext" role=presentation>
   <ul>
     <li><a href="#s1" accesskey="1" title="Slide 1"></a></li>
     <li><a href="#s2" accesskey="2" title="Slide 2"></a></li>
@@ -73,7 +73,7 @@
 
   <!-- Intro -->
   <section class="u-verticalCenter u-center">
-    <article style="z-index: 2;">
+    <article class="intro-article">
       <h1><span class="u-textBold">The Power</span> of CSS</h1>
       <h2>Squares Conference 2017<br>@una</h2>
     </article>
@@ -81,10 +81,10 @@
        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
        x="0px" y="0px" width="707px" height="433px" viewBox="0 0 707 433" style="enable-background:new 0 0 707 433;"
        xml:space="preserve">
-      <polygon class="blue-bg" points="18.5,0 633.2,0 358.9,433 "/>
       <polygon class="yellow-bg" points="247.2,58.1 492.2,322.1 614.4,86.7 "/>
       <polygon class="yellow-bg" points="342,370 247.2,185.8 0,315 "/>
       <polygon class="pink-bg" points="102,388 707,166 561,370 "/>
+      <polygon class="blue-bg" points="18.5,0 633.2,0 358.9,433 "/>
     </svg>
   </section>
 
@@ -454,8 +454,45 @@ body:before {
   </article>
 </section>
 
-  <!-- That slide indicator is a bit different than the one used in this presentation,
-  but in fact this entire presentation doesn't use any JavaScript -->
+  <!-- Future features are really exciting like grid & variables, can use CSS @supports to check for feature support -->
+  <!-- Show Grid Example & Emoji Grid, editable -->
+  <section>
+    <article>
+      <h1>@supports</h1>
+
+      <style class="code-editor" contenteditable="true">.gridarea {
+      @supports grid template {
+      .grid-area {
+        display: grid;
+        grid-template:
+          "😄 😄 😄 😄" 100px
+          "↕️ 🖼 🖼 🖼" 600px
+          "↕️ 🍅 🍅 🍅" auto
+          "👟 👟 👟 👟" 100px /
+          10vw 30vw 30vw 30vw
+          }
+        }
+      }</style>
+
+
+      <section class="grid-area">
+        <section class="header">Hello World</section>
+        <section class="sidebar">🍹</section>
+        <section class="gallery">
+          <ul>
+            <li>🖼</li>
+            <li>🖼</li>
+            <li>🖼</li>
+          </ul>
+        </section>
+        <section class="tomato">
+          <p>Other Content Here</p>
+        </section>
+        <footer>Footer</footer>
+      </section>
+
+    </article>
+  </section>
 
   <!-- Navigation: Access Keys -->
   <section>
@@ -484,24 +521,24 @@ PC FireFox:          alt + shift + {key}</pre>
   </section>
 
   <!-- Keep accessibility in mind but don't stop playing! -->
+  <!-- Should I Use This? It's All About Intent -->
   <section>
     <article>
-      <h1>Accessibility</h1>
+      <h2 class="blockquote">Should I Always Use CSS Instead of JS?</h2>
+      Pros: no additional dependancy, easier to do
+      Cons: a11y, CSS is presentational
+      <h2>Animated *It depends* here</h2>
+      good for some things but not all things
     </article>
   </section>
 
-  <!-- Future features are really exciting like grid & variables, can use CSS @supports to check for feature support -->
-  <section>
-    <article>
-      <h1>@supports</h1>
-      http://codepen.io/primalivet/pen/ryjKmV</article>
-  </section>
-
+  <!-- CSS is the visual language of the web -->
   <section>
     <article>
       <blockquote>
         The real power of CSS is that it creates a common language for designers and developers
       </blockquote>
+      <p>CSS is the visual language of the web -- Work together to build the best solution</p>
     </article>
   </section>
 

@@ -184,7 +184,7 @@ section {
 // navigation thumbs and buttons
 nav {
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   width: 100%;
   user-select: none;
 
@@ -228,6 +228,10 @@ nav {
       }
     }
   }
+}
+
+.prevnext ul{
+  list-style: none;
 }
 
 // slider experience on non mobile
@@ -335,6 +339,9 @@ pre, code {
   font-family: Inconsolata, monospace;
 }
 
+.intro-article {
+  z-index: -1;
+}
 
 // Intro
 .intro-bg {
@@ -344,14 +351,17 @@ pre, code {
   right: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   transition-duration: .5s;
+  z-index: 3;
+  mix-blend-mode: multiply;
+  pointer-events: all;
 
   polygon {
     mix-blend-mode: multiply;
     animation: swaying 8s ease-in-out forwards infinite;
     transition-duration: .5s;
     transform-origin: 50%;
+
     @for $i from 1 through 4 {
       &:nth-child(#{$i}) {
         animation-delay: calc(#{$i}s * .8);
@@ -390,16 +400,25 @@ footer {
   z-index: 3;
 }
 
-article:hover {
-  + .intro-bg {
-    mix-blend-mode: difference;
-  }
-}
+// article:hover {
+//   + .intro-bg {
+//     mix-blend-mode: difference;
+//   }
+// }
 
 .blue-bg{fill:#5AD4FF;}
 .yellow-bg{fill:#FFFF00;}
 .pink-bg{fill:#FF00F3;}
+// }
 
+.blue-bg,
+.yellow-bg,
+.pink-bg{
+  &:hover {
+    fill: lightpink;
+    mix-blend-mode: difference;
+  }
+}
 
 @keyframes swaying{
   0% {transform: rotate(10deg);}
@@ -431,7 +450,6 @@ article:hover {
   @extend pre;
   z-index: 2;
   position: relative;
-  z-index: 2;
 }
 
 .demo1 {

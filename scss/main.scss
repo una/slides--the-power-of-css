@@ -9,7 +9,7 @@ $large-w: 1200px;
 $thumb-w: 50px;
 $thumb-h: 50px;
 $thumb-pad: 10px;
-$s-count: 15;
+$s-count: 14;
 
 ::selection {
   background-color: yellow;
@@ -471,5 +471,111 @@ footer {
 
   div {
     flex: 1;
+  }
+}
+
+.grid-area {
+  margin-left: 2em;
+  max-width: 600px;
+  text-align: center;
+
+  .header {
+    padding: .75em;
+    background: yellow;
+  }
+
+  .sidebar {
+    background: lightpink;
+    font-size: 4rem;
+  }
+
+  .gallery {
+    background: wheat;
+
+    ul {
+      list-style: none;
+      display: flex;
+      font-size: 4rem;
+      width: 100%;
+      justify-content: space-around;
+      padding: 0;
+    }
+  }
+
+  .tomato {
+    padding: 1em;
+    background: tomato;
+  }
+
+  .footer {
+    padding: .75em;
+    background: black;
+    color: white;
+  }
+}
+
+// Cutout from Mandy
+
+.cutout-wrapper {
+	width: 100%;
+	font-family: 'Source Code Pro', monospace;
+	margin: 0 auto;
+	height: 100%;
+
+	h1 {
+		text-transform: uppercase;
+		transform: translate(-50%, -50%) skew(10deg) rotate(-10deg);
+		font-size: 14vw;
+		top: 50%;
+		left: 50%;
+		margin: 0;
+		position: absolute;
+		text-rendering: optimizeLegibility;
+		font-weight: 900;
+		color: #cc00af;
+		text-shadow: 1px 4px 6px white, 0 0 0 #66303a, 1px 4px 6px white;
+		white-space: nowrap;
+
+    &:hover {
+      animation: rainbow 1s alternate linear infinite;
+    }
+
+		&::before {
+			content: attr(data-heading);
+			position: absolute;
+			left: 0;
+			top: -4.8%;
+			overflow: hidden;
+			width: 100%;
+			height: 50%;
+			color: #fbf7f4;
+			transform: translate(1.6vw, 0) skew(-13deg) scale(1, 1.2);
+			z-index: 2;
+			text-shadow: 2px -1px 6px rgba(0,0,0,0.4);
+		}
+
+		&::after {
+			content: attr(data-heading);
+			position: absolute;
+			left: 0;
+			top: 0;
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			color: #d3cfcc;
+			transform: translate(5px, 0) skew(13deg) scale(1, 0.8);
+			clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+			text-shadow: 2px -1px 6px rgba(0,0,0,0.5);
+		}
+	}
+}
+
+@keyframes rainbow {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg)
   }
 }

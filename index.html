@@ -24,7 +24,6 @@
 <a id="s12" title="Section 12 Anchor" class="s"></a>
 <a id="s13" title="Section 13 Anchor" class="s"></a>
 <a id="s14" title="Section 14 Anchor" class="s"></a>
-<a id="s15" title="Section 15 Anchor" class="s"></a>
 
 <div class=progress></div>
 <div class=border></div>
@@ -45,7 +44,6 @@
     <li><a href="#s12" accesskey="w" title="Slide 12"></a></li>
     <li><a href="#s13" accesskey="e" title="Slide 13"></a></li>
     <li><a href="#s14" accesskey="r" title="Slide 14"></a></li>
-    <li><a href="#s15" accesskey="t" title="Slide 15"></a></li>
   </ul>
 </nav>
 
@@ -65,7 +63,6 @@
     <li><a href="#s12" title="Slide 12 Thumbnail"></a></li>
     <li><a href="#s13" title="Slide 13 Thumbnail"></a></li>
     <li><a href="#s14" title="Slide 14 Thumbnail"></a></li>
-    <li><a href="#s15" title="Slide 15 Thumbnail"></a></li>
   </ul>
 </nav>
 
@@ -458,39 +455,53 @@ body:before {
   <!-- Show Grid Example & Emoji Grid, editable -->
   <section>
     <article>
-      <h1>@supports</h1>
+      <h2><code>@supports</code></h2>
+      <div style="display: flex">
+        <style class="code-editor" contenteditable="true" style="flex: 1;">@supports (display: grid) {
+  .grid-area {
+    display: grid;
+    grid-template:
+      "😄 😄 😄 😄" 50px
+      "↕️ 🖼 🖼 🖼" 400px
+      "↕️ 🍅 🍅 🍅" auto
+      "👟 👟 👟 👟" 80px /
+      10% 30% 30% 30%
+    }
 
-      <style class="code-editor" contenteditable="true">.gridarea {
-      @supports grid template {
-      .grid-area {
-        display: grid;
-        grid-template:
-          "😄 😄 😄 😄" 100px
-          "↕️ 🖼 🖼 🖼" 600px
-          "↕️ 🍅 🍅 🍅" auto
-          "👟 👟 👟 👟" 100px /
-          10vw 30vw 30vw 30vw
-          }
-        }
-      }</style>
+  .header {
+    grid-area: 😄;
+  }
+  .sidebar {
+    grid-area: ↕️;
+  }
+  .gallery {
+    grid-area: 🖼;
+  }
+  .tomato {
+    grid-area: 🍅;
+  }
+  .footer {
+    grid-area: 👟;
+  }
+}</style>
 
 
-      <section class="grid-area">
-        <section class="header">Hello World</section>
-        <section class="sidebar">🍹</section>
-        <section class="gallery">
-          <ul>
-            <li>🖼</li>
-            <li>🖼</li>
-            <li>🖼</li>
-          </ul>
-        </section>
-        <section class="tomato">
-          <p>Other Content Here</p>
-        </section>
-        <footer>Footer</footer>
-      </section>
-
+        <div class="grid-area" style="flex: 2">
+          <div class="header">Hello World</div>
+          <div class="sidebar">🍹</div>
+          <div class="gallery">
+            <ul>
+              <li>🖼</li>
+              <li>🖼</li>
+              <li>🖼</li>
+            </ul>
+          </div>
+          <div class="tomato">
+            <p>Other Content Here</p>
+          </div>
+          <div class="footer">Footer</footer>
+        </div>
+      </div>
     </article>
   </section>
 
@@ -525,10 +536,12 @@ PC FireFox:          alt + shift + {key}</pre>
   <section>
     <article>
       <h2 class="blockquote">Should I Always Use CSS Instead of JS?</h2>
-      Pros: no additional dependancy, easier to do
-      Cons: a11y, CSS is presentational
-      <h2>Animated *It depends* here</h2>
-      good for some things but not all things
+      <!-- Pros: no additional dependancy, easier to do -->
+      <!-- Cons: a11y, CSS is presentational -->
+      <input type="checkbox" class="u-click-trigger"/>
+      <div class="cutout-wrapper u-click-appear">
+      	<h1 data-heading="It Depends">It Depends</h1>
+      </div>
     </article>
   </section>
 
@@ -536,9 +549,10 @@ PC FireFox:          alt + shift + {key}</pre>
   <section>
     <article>
       <blockquote>
-        The real power of CSS is that it creates a common language for designers and developers
+        The real power of CSS is that it creates a <b>common language for designers and developers.</b>
       </blockquote>
-      <p>CSS is the visual language of the web -- Work together to build the best solution</p>
+      <!-- <p>CSS is the visual language of the web -- Work together to build the best solution</p> -->
+      <!-- CSS is the gateway drug to other programming langs for a lot of people -->
     </article>
   </section>
 

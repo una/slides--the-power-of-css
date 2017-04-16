@@ -83,6 +83,14 @@
       <polygon class="pink-bg" points="102,388 707,166 561,370 "/>
       <polygon class="blue-bg" points="18.5,0 633.2,0 358.9,433 "/>
     </svg>
+    <div class="check-offs">
+      <input type="checkbox" class="u-click-trigger intro-trigger"/>
+      <div class="u-click-appear intro-gif"><img style="left: -68vw; width: 50vw;" src="img/dog.gif" alt=""></div>
+      <input type="checkbox" class="u-click-trigger intro-trigger"/>
+      <div class="u-click-appear intro-gif"><img src="img/cssgif2.gif" alt=""></div>
+      <input type="checkbox" class="u-click-trigger intro-trigger"/>
+      <div class="u-click-appear intro-gif"><img src="img/cssgif1.gif" alt=""></div>
+    </div>
   </section>
 
   <section>
@@ -117,6 +125,8 @@
   background: yellow;
   // mix-blend-mode: multiply;
   // mix-blend-mode: screen;
+  // mix-blend-mode: lighten;
+  // mix-blend-mode: darken;
   // mix-blend-mode: hue;
   // mix-blend-mode: saturation;
   // mix-blend-mode: luminosity;
@@ -137,43 +147,43 @@
   <section>
     <article>
       <blockquote>"A <span class="u-textBold">Turing Complete</span> system means a system in which a program can be written that will find an answer to any computational problem"</blockquote>
-      http://my-codeworks.com/blog/2015/css3-proven-to-be-turing-complete
-      CSS is turing complete
-      Rule 110 automaton
-      https://jsfiddle.net/Camilo/eQyBa/
-      http://lemire.me/blog/2011/03/08/breaking-news-htmlcss-is-turing-complete/
+      <p data-height="350" data-theme-id="light" data-slug-hash="wqLyH" data-default-tab="result" data-user="elrumordelaluz" data-embed-version="2" data-pen-title="Rule 110" class="codepen">See the Pen <a href="https://codepen.io/elrumordelaluz/pen/wqLyH/">Rule 110</a> by Lionel T (<a href="http://codepen.io/elrumordelaluz">@elrumordelaluz</a>) on <a href="http://codepen.io">CodePen</a>.</p>
     </article>
   </section>
 
   <!-- Accordion -->
   <section class="less-padding">
     <article>
-      <p data-height="300" data-theme-id="5255" data-slug-hash="EgLPmZ" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS Only Accordion: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/EgLPmZ/">CSS Only Accordion: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+      <p data-height="300" data-theme-id="light" data-slug-hash="EgLPmZ" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS Only Accordion: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/EgLPmZ/">CSS Only Accordion: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
       <input type="checkbox" class="u-click-trigger"/>
       <div class="u-click-appear">
         <div class="code-area">
           <div class="code-block html"><h3>HTML</h3>
             <pre><code>&lt;div class=&quot;togglebox&quot;&gt;
-  &lt;input id=&quot;toggle1&quot; type=&quot;radio&quot; name=&quot;toggle&quot; /&gt;
+  &lt;input id=&quot;toggle1&quot; type=&quot;checkbox&quot; name=&quot;toggle&quot; /&gt;
   &lt;label for=&quot;toggle1&quot;&gt;Label 1&lt;/label&gt;
   &lt;section id=&quot;content1&quot;&gt;
     &lt;p&gt;Content for the first accordion&lt;/p&gt;
   &lt;/section&gt;
-
-  &lt;input id=&quot;toggle2&quot; type=&quot;radio&quot; name=&quot;toggle&quot; /&gt;
+  &lt;input id=&quot;toggle2&quot; type=&quot;checkbox&quot; name=&quot;toggle&quot; /&gt;
   &lt;label for=&quot;toggle2&quot;&gt;Label 2&lt;/label&gt;
   &lt;section id=&quot;content2&quot;&gt;
     &lt;p&gt;Content for the second accordion&lt;/p&gt;
   &lt;/section&gt;
-
-  &lt;input id=&quot;toggle3&quot; type=&quot;radio&quot; name=&quot;toggle&quot; /&gt;
+  &lt;input id=&quot;toggle3&quot; type=&quot;checkbox&quot; name=&quot;toggle&quot; /&gt;
   &lt;label for=&quot;toggle3&quot;&gt;Label 3&lt;/label&gt;
   &lt;section id=&quot;content3&quot;&gt;
     &lt;p&gt;Content for the third accordion&lt;/p&gt;
   &lt;/section&gt;
 &lt;/div&gt;</code></pre>
           </div>
-          <div class="code-block css"><h3>CSS</h3><pre><code>// Style accordion content
+          <div class="code-block css"><h3>CSS</h3><pre><code>// Visually hide checkbox buttons
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+            
+// Accordion section content gets hidden
 section {
   height: 0;
   overflow: hidden;
@@ -183,8 +193,7 @@ section {
 #toggle1:checked ~ #content1,
 #toggle2:checked ~ #content2,
 #toggle3:checked ~ #content3 {
-  // set height for transition duration to work
-  // (also can set to auto without transition)
+  // Can also set height to auto, no transition
   height: 200px;
 }</code></pre>
           </div>
@@ -196,7 +205,7 @@ section {
   <!-- Tabs -->
   <section class="less-padding">
     <article>
-      <p data-height="300" data-theme-id="5255" data-slug-hash="KgRzRE" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS-Only Tabs:  youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/KgRzRE/">CSS-Only Tabs:  youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+      <p data-height="300" data-theme-id="light" data-slug-hash="KgRzRE" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS-Only Tabs:  youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/KgRzRE/">CSS-Only Tabs:  youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
       <input type="checkbox" class="u-click-trigger"/>
       <div class="u-click-appear">
         <div class="code-area">
@@ -209,7 +218,6 @@ section {
           &lt;p&gt;Tab One Content&lt;/p&gt;
        &lt;/div&gt;
    &lt;/div&gt;
-
    &lt;div class=&quot;tab&quot;&gt;
        &lt;input type=&quot;radio&quot; name=&quot;tabgroup&quot; id=&quot;tab-2&quot;&gt;
        &lt;label for=&quot;tab-2&quot;&gt;Label Two&lt;/label&gt;
@@ -217,7 +225,6 @@ section {
            &lt;p&gt;Tab Two Content&lt;/p&gt;
        &lt;/div&gt;
    &lt;/div&gt;
-
     &lt;div class=&quot;tab&quot;&gt;
        &lt;input type=&quot;radio&quot; name=&quot;tabgroup&quot; id=&quot;tab-3&quot;&gt;
        &lt;label for=&quot;tab-3&quot;&gt;Label Three&lt;/label&gt;
@@ -227,19 +234,35 @@ section {
    &lt;/div&gt;
 &lt;/div&gt;</code></pre>
           </div>
-          <div class="code-block css"><h3>CSS</h3><pre><code>.tabs {
+          <div class="code-block css"><h3>CSS</h3><pre><code>// Tab container
+.tabs {
   position: relative;
-  // set height to be even for all tab groups
-  min-height: 200px;
+  height: 200px;
 }
 
+// Style tab itself to not have radio circle
+.tab [type=radio] {
+  position: absolute;
+  clip: rect(0,0,0,0);
+
+  &:focus + label {
+    outline: 2px dotted #000;
+  }
+}
+
+// Style content position to layer
+.content {
+  position: absolute;
+  top: 2em; left: 0; right: 0; bottom:
+}
+
+// Label visual change
 [type=radio]:checked ~ label {
-  z-index: 2;
+  background: lightpink;
 }
 
 [type=radio]:checked ~ label ~ .content {
   z-index: 1;
-  opacity: 1;
 }</code></pre>
           </div>
         </div>
@@ -250,7 +273,7 @@ section {
   <!-- Lightbox -->
   <section class="less-padding">
     <article>
-      <p data-height="300" data-theme-id="5255" data-slug-hash="wzjGAj" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS Only Lightbox: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/wzjGAj/">CSS Only Lightbox: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+      <p data-height="300" data-theme-id="light" data-slug-hash="wzjGAj" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS Only Lightbox: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/wzjGAj/">CSS Only Lightbox: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
       <input type="checkbox" class="u-click-trigger"/>
       <div class="u-click-appear">
         <div class="code-area">
@@ -265,36 +288,35 @@ section {
   &lt;img src=&quot;img.jpg&quot;&gt;
 &lt;/a&gt;</code></pre>
           </div>
-          <div class="code-block css"><h3>CSS</h3><pre><code>.thumbnail {
+          <div class="code-block css"><h3>CSS</h3><pre><code>//thumbnail style
+.thumbnail {
   max-width: $thumbnail-size;
 }
 
 .lightbox {
-  // Hide lightbox image
-	display: none;
+  // Position/style of lightbox
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  top: 0; left: 0;
+  background: darkgray;
 
-	// Position/style of lightbox
-	position: fixed;
-	z-index: 999;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	top: 0;
-	left: 0;
-	background: $background-color;
+  // Hide lightbox image
+  display: none;
 }
 
 .lightbox img {
-	/// Pad the lightbox image
-	max-width: 90%;
-	max-height: 80%;
-	margin-top: 2%;
+  /// Pad the lightbox image
+  max-width: 90%;
+  max-height: 80%;
+  margin-top: 2%;
 }
 
 .lightbox:target {
-	// Remove default outline and unhide lightbox
-	outline: none;
-	display: block;
+  // Show lightbox on target
+  display: block;
 }</code></pre>
           </div>
         </div>
@@ -305,7 +327,7 @@ section {
   <!-- Modal -->
   <section class="less-padding">
     <article>
-      <p data-height="300" data-theme-id="5255" data-slug-hash="ObRKvq" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS-Only Modal: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/ObRKvq/">CSS-Only Modal: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+      <p data-height="300" data-theme-id="light" data-slug-hash="ObRKvq" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS-Only Modal: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/ObRKvq/">CSS-Only Modal: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
       <input type="checkbox" class="u-click-trigger"/>
       <div class="u-click-appear">
         <div class="code-area">
@@ -326,18 +348,14 @@ section {
 &lt;/dialog&gt;</code></pre>
           </div>
           <div class="code-block css"><h3>CSS</h3><pre><code>// Modal hidden until it matches an anchor target
-// Note: you can't close it with the escape key
-// or trap focus inside of it.
 .modal {
   opacity: 0;
   visibility: hidden;
 }
 
-// modal fades in when it matches
-// an anchor link (i.e. clicked on)
 #modalDialog:target {
   opacity: 1;
-  visibility: hidden;
+  visibility: visible;
 }</code></pre>
           </div>
         </div>
@@ -354,7 +372,7 @@ section {
 <!-- content: attr(data-tip); -->
 <section class="less-padding">
   <article>
-    <p data-height="300" data-theme-id="5255" data-slug-hash="JWwXEp" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS Tooltips: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/JWwXEp/">CSS Tooltips: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <p data-height="300" data-theme-id="light" data-slug-hash="JWwXEp" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS Tooltips: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/JWwXEp/">CSS Tooltips: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
     <input type="checkbox" class="u-click-trigger"/>
     <div class="u-click-appear">
       <div class="code-area">
@@ -373,17 +391,15 @@ section {
     position: absolute;
     left: 50%;
     opacity: 0;
-    z-index: -100;
+    z-index: 0;
     transition: opacity .5s;
     color: white;
   }
 
-  &:hover::before,
-  &:focus::before,
-  &:hover::after,
-  &:focus::after {
+  &:hover::before, &:focus::before,
+  &:hover::after, &:focus::after {
     opacity: 1;
-    z-index: 100;
+    z-index: 10;
   }
 
   /* tooltip balloon */
@@ -417,7 +433,7 @@ section {
 <!-- Scroll Status Indicator -->
 <section class="less-padding">
   <article>
-    <p data-height="300" data-theme-id="5255" data-slug-hash="bwrEpZ" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS Only Scroll Indicator: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/bwrEpZ/">CSS Only Scroll Indicator: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <p data-height="300" data-theme-id="light" data-slug-hash="bwrEpZ" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="CSS Only Scroll Indicator: youmightnotneedjs.com" class="codepen">See the Pen <a href="http://codepen.io/una/pen/bwrEpZ/">CSS Only Scroll Indicator: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
     <input type="checkbox" class="u-click-trigger"/>
     <div class="u-click-appear">
       <div class="code-area">
@@ -511,22 +527,28 @@ body:before {
     <h2 class="blockquote title-on-this-page">This presentation is made <span class="u-textBold"><br/>entirely in HTML + CSS</span></h2>
     <div class="flex-half-parent">
       <div>
-      <h2>Keyboard Navgation</h2>
-      <pre style="min-width: 460px"><code>&lt;a accesskey="slide1" title="Slide 1"&gt;&lt;/a&gt;</code></pre>
-<pre>
-Mac:                 alt + ctrl + {key}
-PC Chrome/Safari/IE: alt + {key}
-PC FireFox:          alt + shift + {key}</pre>
-<p class=right><small></small></p>
-</div>
-<input type="checkbox" class="u-click-trigger"/>
-<div class="u-click-appear" style="margin-left: 3em; margin-top: 0">
-  <h2>Live Code Editing</h2>
-  <style style="min-width: 460px" class="this-slide code-editor" contenteditable="true">.title-on-this-page {
-  // contenteditable magic!
-}
-  </style>
-</div>
+        <input type="checkbox" class="u-click-trigger"/>
+        <div class="u-click-appear">
+          <h2>Keyboard Navgation</h2>
+          <pre style="min-width: 460px"><code>&lt;a accesskey="slide1" title="Slide 1"&gt;&lt;/a&gt;</code></pre>
+  <pre>
+  Mac:                 alt + ctrl + {key}
+  PC Chrome/Safari/IE: alt + {key}
+  PC FireFox:          alt + shift + {key}
+  </pre>
+      <p class=right><small></small></p>
+    </div>
+  </div>
+  <div>
+    <input type="checkbox" class="u-click-trigger"/>
+    <div class="u-click-appear" style="margin-left: 3em; margin-top: 0">
+      <h2>Live Code Editing</h2>
+      <style style="min-width: 460px" class="this-slide code-editor" contenteditable="true">.title-on-this-page {
+      // contenteditable magic!
+    }
+      </style>
+    </div>
+    </div>
 <div>
     </article>
   </section>
@@ -534,13 +556,12 @@ PC FireFox:          alt + shift + {key}</pre>
   <!-- Keep accessibility in mind but don't stop playing! -->
   <!-- Should I Use This? It's All About Intent -->
   <section>
-    <article>
-      <h2 class="blockquote">Should I Always Use CSS Instead of JS?</h2>
-      <!-- Pros: no additional dependancy, easier to do -->
-      <!-- Cons: a11y, CSS is presentational -->
-      <input type="checkbox" class="u-click-trigger"/>
-      <div class="cutout-wrapper u-click-appear">
-      	<h1 data-heading="It Depends">It Depends</h1>
+    <article style="text-align:center">
+      <h2>Pure CSS Games</h2>
+      <div class="flex-half-parent">
+      <p data-height="600" data-theme-id="light" data-slug-hash="NxZaNr" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="Pure CSS (Sass) Carnival Game" class="codepen">See the Pen <a href="http://codepen.io/una/pen/NxZaNr/">Pure CSS (Sass) Carnival Game</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+
+      <p data-height="600" data-theme-id="light" data-slug-hash="aNZEbB" data-default-tab="result" data-user="una" data-embed-version="2" data-pen-title="Pure CSS Tic Tac Toe!" class="codepen">See the Pen <a href="http://codepen.io/una/pen/aNZEbB/">Pure CSS Tic Tac Toe!</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
       </div>
     </article>
   </section>
@@ -548,31 +569,48 @@ PC FireFox:          alt + shift + {key}</pre>
   <!-- CSS is the visual language of the web -->
   <section>
     <article>
-      <blockquote>
-        The real power of CSS is that it creates a <b>common language for designers and developers.</b>
-      </blockquote>
-      <!-- <p>CSS is the visual language of the web -- Work together to build the best solution</p> -->
-      <!-- CSS is the gateway drug to other programming langs for a lot of people -->
+      <input type="checkbox" class="u-click-trigger"/>
+      <div class="u-click-appear">
+        <blockquote>
+          The real power of CSS is that it creates a <b>common language for designers and developers.</b>
+        </blockquote>
+      </div>
+      
+      <div class="cutout-wrapper">
+      	<h1 data-heading="CSS is Awesome">CSS is Awesome</h1>
+      </div>
     </article>
   </section>
 
   <section>
     <article>
-    <h2>Thank You</h2>
+    <h2>Thank You | <a href="#">una.im/power-of-css</a></h2>
     <h3>People Who Inspired This/Me</h3>
     <ul>
-      <li><a href="#">Jake Albaugh</a>–presentation framework & awesome CSS games</li>
-      <li><a href="#">Mandy Michaels</a>–CSS text effect</li>
-      <li><a href="#">Mike Reithmuller</a>–scroll hack</li>
+      <li><a href="https://twitter.com/jake_albaugh">Jake Albaugh</a>: presentation framework & awesome CSS games</li>
+      <li><a href="https://twitter.com/Mandy_Kerr">Mandy Michael</a>: CSS text effect</li>
+      <li><a href="https://twitter.com/MikeRiethmuller">Mike Reithmuller</a>: Scroll Indicator Hack</li>
+    </ul>
+    <h3>Projects Mentioned</h3>
+    <ul>
+      <li><a href="http://diffee.me">Diffee</a>: Visual diffing with CSS blend modes</li>
+      <li><a href="https://una.im/CSSgram">CSSgram</a>: Instagram filters in CSS</li>
+      <li><a href="http://youmightnotneedjs.com/">YouMightNotNeedJS.com</a>: Interactive UI components in CSS</li>
     </ul>
     <h3>Resources</h3>
-      <ul>
-        <li><a href="#">Presentation Framework</a></li>
-        <li><a href="http://www.w3schools.com/tags/att_global_accesskey.asp" target="blank">Accesskeys in Markup</a></li>
-      </ul>
+    <ul>
+      <li><a href="http://codepen.io/jakealbaugh/pen/GpgRGm">Presentation Framework</a>: Original pen by Jake Albaugh</li>
+      <li><a href="http://codepen.io/collection/DamKJW/">CSS Text Effects</a>: More magic by Mandy Michaels</li>
+      <li><a href="http://codepen.io/collection/AKkZro/">More Pure-CSS Games</a>: Codepen collection</li>
+    </ul>
+    <h3>Tools</h3>
+    <ul>
+      <li><a href="http://caniuse.com/">CanIUse</a>: Browser support tables</li>
+      <li><a href="https://www.w3.org/WAI/WCAG20/quickref/">WCAG Quick Reference</a>: Web sccessibility checklist</li>
+      <li><a href="https://www.webpagetest.org/">Web Page Test</a>: Site performance analyzer</li>
+    </ul>
     </article>
   </section>
-
 </main>
 
 <footer>

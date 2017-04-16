@@ -19,6 +19,11 @@ $s-count: 14;
   box-sizing: border-box;
 }
 
+a {
+  color: #cc0000;
+  font-weight: 600;
+}
+
 body {
   margin: 0;
 }
@@ -441,6 +446,10 @@ footer {
 
 .cp_embed_wrapper {
   outline: 1px solid $border-color;
+
+  + .cp_embed_wrapper {
+    margin-left: 2em;
+  }
 }
 
 // Editor Things
@@ -515,7 +524,6 @@ footer {
 }
 
 // Cutout from Mandy
-
 .cutout-wrapper {
 	width: 100%;
 	font-family: 'Source Code Pro', monospace;
@@ -524,9 +532,9 @@ footer {
 
 	h1 {
 		text-transform: uppercase;
-		transform: translate(-50%, -50%) skew(10deg) rotate(-10deg);
-		font-size: 14vw;
-		top: 50%;
+		transform: translate(-50%, -50%) skew(10deg) rotate(-15deg);
+		font-size: 10vw;
+		top: 55%;
 		left: 50%;
 		margin: 0;
 		position: absolute;
@@ -564,7 +572,7 @@ footer {
 			height: 100%;
 			z-index: 1;
 			color: #d3cfcc;
-			transform: translate(5px, 0) skew(13deg) scale(1, 0.8);
+			transform: translate(11px, 0) skew(13deg) scale(1, 0.8);
 			clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
 			text-shadow: 2px -1px 6px rgba(0,0,0,0.5);
 		}
@@ -578,4 +586,27 @@ footer {
   to {
     filter: hue-rotate(360deg)
   }
+}
+
+.check-offs {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.intro-gif {
+  position: absolute;
+  mix-blend-mode: unset;
+
+  img {
+    width: 70vw;
+    position: absolute;
+    left: -75vw;
+    mix-blend-mode: unset;
+    z-index: 10;
+  }
+}
+
+.intro-trigger {
+  position: relative;
 }

@@ -333,17 +333,15 @@ input[type="checkbox"]:checked ~ section {
         <div class="code-area">
           <div class="code-block html"><h3>HTML</h3>
             <pre><code>&lt;a class=&quot;modalTrigger&quot; id=&quot;modalTrigger&quot;
-   href=&quot;#modalDialog1&quot;&gt;
-&#x9;Open dialog
-&lt;/a&gt;
+   href=&quot;#modalDialog1&quot;&gt;Open dialog&lt;/a&gt;
 
 &lt;dialog class=&quot;modal&quot; id=&quot;modalDialog1&quot;
-&#x9;&#x9;tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
   &lt;div&gt;
-&#x9;  &lt;a href=&quot;#modalTrigger&quot; aria-label=&quot;Close&quot;&gt;
-&#x9;  &#x9;&amp;times;
-&#x9;  &lt;/a&gt;
-&#x9;  &lt;p&gt;Hello Beautiful!&lt;/p&gt;
+    &lt;a href=&quot;#modalTrigger&quot; aria-label=&quot;Close&quot;&gt;
+      &amp;times;
+      &lt;/a&gt;
+      &lt;p&gt;Hello Beautiful!&lt;/p&gt;
   &lt;/div&gt;
 &lt;/dialog&gt;</code></pre>
           </div>
@@ -379,7 +377,7 @@ input[type="checkbox"]:checked ~ section {
         <div class="code-block html"><h3>HTML</h3>
           <pre><code>&lt;span class=&quot;tooltip&quot;
             data-tip=&quot;I am a tooltip&quot;
-            tabindex=&quot;1&quot;&gt;tooltip&lt;/span&gt;</code></pre>
+            tabindex=&quot;0&quot;&gt;tooltip text&lt;/span&gt;</code></pre>
         </div>
         <div class="code-block css"><h3>CSS</h3><pre><code>.tooltip {
   position: relative;
